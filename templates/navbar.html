@@ -1,0 +1,25 @@
+<div class="navbar-container">
+    <div class="logo">
+        <a href="/">
+            <img src="{% static 'images/wanda.jpg' %}" alt="">
+            <span>StudyBud</span>
+        </a>
+    </div>
+
+    <div class="search-bar">
+        <form action="{% url 'home' %}" method="get">
+            <input type="text" name="q" placeholder="Search rooms...">
+        </form>
+    </div>
+
+    <div class="nav-profile">
+        {% if request.user.is_authenticated %}
+        <p>Hello {{request.user}}</p>
+        <span><a href="{% url 'logout' %}">Logout</a></span>
+        {%else%}
+        <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+        
+    </div>
+    <hr>
+</div>
